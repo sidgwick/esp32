@@ -7,6 +7,7 @@
 
 #include "app.h"
 #include "camera.h"
+#include "take_picture.h"
 #include "wifi.h"
 
 void app_main(void) {
@@ -17,4 +18,5 @@ void app_main(void) {
     wifi_connection();
 
     raw_camera_application();
+    camera_app_main();
 }
