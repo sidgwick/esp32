@@ -3,3 +3,4 @@
 sdkconfig.esp-wrover-kit.old
 .DS_Store
 images
+.idea
