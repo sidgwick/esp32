@@ -1,3 +1,3 @@
 #pragma once
 
-void camera_app_main(void);
+void camera_app_main();

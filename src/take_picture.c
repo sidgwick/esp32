@@ -92,7 +92,7 @@ static esp_err_t init_camera(void) {
     return ESP_OK;
 }
 
-void camera_app_main(void) {
+void camera_app_main() {
     if (ESP_OK != init_camera()) {
         return;
     }

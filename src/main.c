@@ -9,6 +9,8 @@
 #include "camera.h"
 #include "take_picture.h"
 #include "wifi.h"
+#include "dht11_report.h"
+
 
 void app_main(void) {
     ESP_ERROR_CHECK(nvs_flash_init());
@@ -18,5 +20,7 @@ void app_main(void) {
     wifi_connection();
 
     raw_camera_application();
-    camera_app_main();
+
+    xTaskCreate(dht11_report, "HDT11", 2048, 0, 1, NULL);
+    xTaskCreate(camera_app_main, "CAMERA", 2048, 0, 1, NULL);
 }
