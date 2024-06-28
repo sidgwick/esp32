@@ -54,16 +54,14 @@ void dht11_report() {
     while (1) {
         struct dht11_reading res = DHT11_read();
 
-        ESP_LOGI(TAG, "Temperature is %d", res.temperature);
-        ESP_LOGI(TAG, "Humidity is %d\n", res.humidity);
+        ESP_LOGI(TAG, "Temperature is %.2f", res.temperature);
+        ESP_LOGI(TAG, "Humidity is %.2f\n", res.humidity);
         ESP_LOGI(TAG, "Status code is %d\n", res.status);
 
         if (res.status == DHT11_OK) {
-            float temperature = res.temperature * 1.0;
-            float humidity = res.humidity * 1.0;
-            http_with_url(temperature, humidity);
+            http_with_url(res.temperature, res.humidity);
         }
 
-        vTaskDelay(4000 / portTICK_RATE_MS);
+        vTaskDelay(8000 / portTICK_RATE_MS);
     }
 }
