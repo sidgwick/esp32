@@ -20,6 +20,6 @@ void app_main(void) {
 
     raw_camera_application();
 
-    xTaskCreate(dht11_report, "HDT11", 20480, 0, 1, NULL);
-    // xTaskCreate(camera_app_main, "CAMERA", 2048, 0, 1, NULL);
+    // xTaskCreate(dht11_report, "HDT11", 20480, 0, 1, NULL);
+    xTaskCreate(camera_app_main, "CAMERA", 2048, 0, 1, NULL);
 }
